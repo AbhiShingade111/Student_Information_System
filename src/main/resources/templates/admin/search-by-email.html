@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div th:if="${session.message}" class="alert alert-primary"
+			th:classappend="${session.message.type}" role="alert">
+			<p th:text="${session.message.content}"></p>
+			<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		</div>
+		<nav class="navbar navbar-light bg-light">
+
+
+
+			<form class="form-inline mt-5"
+				th:action="@{/admin/search-user-process}" method="post">
+				<div class="form-group">
+					<div class="col-xs-15">
+						<div>
+
+							<!-- Check for registration error -->
+							<div th:if="${notfound}"
+								class="alert alert-danger col-xs-offset-1 col-xs-10">
+								<span th:text="${notfound}"></span>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<input class="form-control mr-sm-2" type="search"
+					placeholder="Email" aria-label="Search" name="email">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+
+
+			<div class="col-4">
+
+				<form class="form-inline mt-5"
+					th:action="@{/admin/search-user-by-role}" method="post">
+					<select class="form-control mr-sm-2" name="role">
+						<option th:value="ROLE_FACULTY">ROLE_FACULTY</option>
+						<option th:value="ROLE_USER">ROLE_USER</option>
+						<option th:value="ROLE_ADMIN">ROLE_ADMIN</option>
+					</select>
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+			</div>
+		</nav>
+
+	</section>
+</body>
+</html>

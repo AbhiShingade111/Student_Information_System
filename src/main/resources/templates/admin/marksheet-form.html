@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+.error {
+	color: red;
+}
+</style>
+</head>
+<body>
+	<section>
+
+		<div class="container">
+
+			<div class="text-center text-bold mt-5">
+				<span
+					style="text-shadow: 2px 3px 5px grey; color: blue; font-size: 50px;">Add
+					Marksheet</span>
+
+			</div>
+
+			<!-- Registration Form -->
+			<form th:action="@{/admin/add-marksheet}" th:object="${marksheet}"
+				method="POST">
+
+				<!-- Place for messages: error, alert etc ... -->
+				<div class="form-group">
+					<div class="col-xs-15">
+						<div>
+
+							<!-- Check for registration error -->
+							<div th:if="${addingError}"
+								class="alert alert-danger col-xs-offset-1 col-xs-10">
+								<span th:text="${addingError}"></span>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div th:if="${session.message}" class="alert alert-primary"
+					th:classappend="${session.message.type}" role="alert">
+					<p th:text="${session.message.content}"></p>
+					<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+				</div>
+
+
+				<input type="hidden" th:field="*{stud_id}">
+				<!-- User name -->
+				<div class="mb-3">
+					<label for="inputstudent">Student Name<span
+						style="color: red">*</span></label> <input type="text"
+						class="form-control"
+						th:classappend="${#fields.hasErrors('stud_name')} ? 'is-invalid' : ''"
+						id="inputstudent" placeholder="Enter Student name"
+						name="stud_name" th:value="${marksheet.stud_name}">
+					<div th:each="err : ${#fields.errors('stud_name')}"
+						class="invalid-feedback" th:text="${err}"></div>
+				</div>
+				<!-- 	
+				<!-- 							STudent Roo no  -->
+				<div class="mb-3">
+					<label for="inputrollno">Roll No<span style="color: red">*</span></label>
+					<input type="text" maxlength="4" class="form-control"
+						th:classappend="${#fields.hasErrors('roll_no')} ? 'is-invalid' : ''"
+						id="inputrollno" placeholder="Enter roll no" name="roll_no"
+						th:value="${marksheet.roll_no}">
+					<div th:each="err : ${#fields.errors('roll_no')}"
+						class="invalid-feedback" th:text="${err}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="inputphysics">Physics<span style="color: red">*</span></label>
+					<input type="text" class="form-control"
+						th:classappend="${#fields.hasErrors('physics')} ? 'is-invalid' : ''"
+						id="inputphysics" placeholder="Enter marks" maxlength="3"
+						name="physics" th:value="${marksheet.physics}">
+					<div th:each="err : ${#fields.errors('physics')}"
+						class="invalid-feedback" th:text="${err}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="inputchemistry">Chemistry<span
+						style="color: red">*</span></label> <input type="text"
+						class="form-control"
+						th:classappend="${#fields.hasErrors('chemistry')} ? 'is-invalid' : ''"
+						id="inputchemistry" placeholder="Enter marks" maxlength="3"
+						name="chemistry" th:value="${marksheet.chemistry}">
+					<div th:each="err : ${#fields.errors('chemistry')}"
+						class="invalid-feedback" th:text="${err}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="inputmaths">Mathematics<span style="color: red">*</span></label>
+					<input type="text" class="form-control"
+						th:classappend="${#fields.hasErrors('maths')} ? 'is-invalid' : ''"
+						id="inputmaths" placeholder="Enter marks" maxlength="3"
+						name="maths" th:value="${marksheet.maths}">
+					<div th:each="err : ${#fields.errors('maths')}"
+						class="invalid-feedback" th:text="${err}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="inputbiology">Physics<span style="color: red">*</span></label>
+					<input type="text" class="form-control"
+						th:classappend="${#fields.hasErrors('biology')} ? 'is-invalid' : ''"
+						id="inputbiology" placeholder="Enter marks" maxlength="3"
+						name="biology" th:value="${marksheet.biology}">
+					<div th:each="err : ${#fields.errors('biology')}"
+						class="invalid-feedback" th:text="${err}"></div>
+				</div>
+
+				<div class="mb-3">
+					<label for="formGroupExampleInput">College Name<span
+						style="color: red">*</span></label> <input type="text"
+						class="form-control"
+						th:classappend="${#fields.hasErrors('college_name')} ? 'is-invalid' : ''"
+						id="formGroupExampleInput" placeholder="Enter college name"
+						name="college_name" th:value="${marksheet.college_name}">
+					<div th:each="err : ${#fields.errors('college_name')}"
+						class="invalid-feedback" th:text="${err}"></div>
+				</div>
+
+
+				<!-- Register Button -->
+				<div style="margin-top: 10px" class="form-group">
+					<div class="col-sm-6 controls">
+						<button type="submit" class="btn btn-primary">Submit</button>
+						<button type="reset" class="btn btn-danger">Reset</button>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</section>
+
+</body>
+</html>

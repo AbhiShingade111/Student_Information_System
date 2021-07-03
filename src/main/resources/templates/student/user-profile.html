@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="student/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="mt-5">
+					<div class="text-center">
+						<table class="table table-bordered">
+							<tr>
+								<td>User Firstname</td>
+								<td th:text="${user.firstname}"></td>
+							</tr>
+							<tr>
+								<td>User Lastname</td>
+								<td th:text="${user.lastname}"></td>
+							</tr>
+							<tr>
+								<td>User Email</td>
+								<td th:text="${user.email}"></td>
+							</tr>
+							<tr>
+								<td>User Address</td>
+								<td th:text="${user.address}"></td>
+							</tr>
+							<tr>
+								<td>User State</td>
+								<td th:text="${user.state}"></td>
+							</tr>
+							<tr>
+								<td>User City</td>
+								<td th:text="${user.city}"></td>
+							</tr>
+							<tr>
+								<td>User Role</td>
+								<td th:text="${user.role}"></td>
+							</tr>
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>

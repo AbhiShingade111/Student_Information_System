@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="student/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			
+				<div th:if="${session.message}" class="alert alert-primary"
+					th:classappend="${session.message.type}" role="alert">
+					<p th:text="${session.message.content}"></p>
+					<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+				</div>
+				<form class="form-inline" th:action="@{/student/show-marksheet}"
+					method="post" style="text-align: center; margin-top: 250px; margin-left: 250px;">
+
+					<input
+						class="form-control mr-sm-2" id="inputroll" type="search"
+						placeholder="Roll No" aria-label="Search" name="roll_no">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Show</button>
+				</form>
+			</div>
+	</section>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>User registration</title>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.error {
+	color: red;
+}
+</style>
+</head>
+<body>
+	<section>
+		<div class="container">
+
+			<div class="text-center text-bold mt-5">
+				<span
+					style="text-shadow: 2px 3px 5px grey; color: blue; font-size: 50px;">User
+					Registration</span>
+
+			</div>
+
+			<form action="#" th:action="@{/admin/user-register}"
+				th:object="${user}" method="POST">
+
+
+				<div class="form-group">
+					<div class="col-xs-15">
+						<div>
+
+							<!-- Check for registration error -->
+							<div th:if="${registrationError}"
+								class="alert alert-danger col-xs-offset-1 col-xs-10">
+								<span th:text="${registrationError}"></span>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div th:if="${session.message}" class="alert alert-primary"
+					th:classappend="${session.message.type}" role="alert">
+					<p th:text="${session.message.content}"></p>
+					<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+				</div>
+				<input type="hidden" th:field="*{id}" />
+
+				<div class="mb-3">
+					<label for="inputname">First Name<span style="color: red">*</span></label>
+					<input type="text" class="form-control"
+						th:classappend="${#fields.hasErrors('firstname')} ? 'is-invalid' : ''"
+						id="inputname" placeholder="Enter First name" name="firstname"
+						th:value="${user.firstname}" th:field="*{firstname}">
+					<!-- 								<div th:if="${#fields.errors('firstname')}" -->
+					<!-- 									class="invalid-feedback" th:text="*{firstname}"></div> -->
+					<div th:each="err : ${#fields.errors('firstname')}"
+						class="invalid-feedback" th:text="${err}"></div>
+
+				</div>
+				<div class="mb-3">
+					<label for="formGroupExampleInput2">Last Name<span
+						style="color: red">*</span></label> <input type="text"
+						class="form-control"
+						th:classappend="${#fields.hasErrors('lastname')} ? 'is-invalid' : ''"
+						id="formGroupExampleInput2" placeholder="Enter lastname"
+						name="lastname" th:value="${user.lastname}" th:field="*{lastname}">
+					<!-- 								<div th:if="${#fields.errors('lastname')}" -->
+					<!-- 									class="invalid-feedback" th:errors="*{lastname}"></div> -->
+					<div th:each="err : ${#fields.errors('lastname')}"
+						class="invalid-feedback" th:text="${err}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="emailid">Email(Will be your username)<span
+						style="color: red">*</span></label> <input type="email"
+						class="form-control"
+						th:classappend="${#fields.hasErrors('email')} ? 'is-invalid' : ''"
+						id="emailid" placeholder="Enter Email" name="email"
+						th:field="*{email}" th:value="${user.email}">
+					<!-- 					<div th:if="${#fields.errors('email')}" class="invalid-feedback" -->
+					<!-- 						th:errors="*{email}"></div> -->
+					<div th:each="err : ${#fields.errors('email')}"
+						class="invalid-feedback" th:text="${err}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="pass">Password<span style="color: red">*</span></label>
+					<input type="password" class="form-control"
+						th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''"
+						id="pass" placeholder="Enter Password" name="password"
+						th:field="*{password}" th:value="${user.password}">
+					<!-- 					<div th:if="${#fields.errors('password')}" class="invalid-feedback" -->
+					<!-- 						th:errors="*{password}"></div> -->
+					<div th:each="err : ${#fields.errors('password')}"
+						class="invalid-feedback" th:text="${err}"></div>
+				</div>
+
+				<div class="mb-3">
+					<label for="state">State<span style="color: red">*</span></label> <input
+						type="text" class="form-control"
+						th:classappend="${#fields.hasErrors('state')} ? 'is-invalid' : ''"
+						id="state" placeholder="Enter state" name="state"
+						th:field="*{state}" th:value="${user.state}">
+					<!-- 					<div th:if="${#fields.errors('state')}" class="invalid-feedback" -->
+					<!-- 						th:errors="*{state}"></div> -->
+					<div th:each="err : ${#fields.errors('state')}"
+						class="invalid-feedback" th:text="${err}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="cityinput">City<span style="color: red">*</span></label>
+					<input type="text" class="form-control"
+						th:classappend="${#fields.hasErrors('city')} ? 'is-invalid' : ''"
+						id="cityinput" placeholder="Enter city" name="city"
+						th:field="*{city}" th:value="${user.city}">
+					<!-- 					<div th:if="${#fields.errors('city')}" class="invalid-feedback" -->
+					<!-- 						th:text="*{city}"></div> -->
+					<div th:each="err : ${#fields.errors('city')}"
+						class="invalid-feedback" th:text="${err}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="formaddress">Address<span style="color: red">*</span></label>
+					<input type="text" class="form-control"
+						th:classappend="${#fields.hasErrors('address')} ? 'is-invalid' : ''"
+						id="formaddress" placeholder="Enter Address" name="address"
+						th:value="${user.address}" th:field="*{address}">
+					<!-- 					<div th:if="${#fields.errors('address')}" class="invalid-feedback" -->
+					<!-- 						th:errors="*{address}"></div> -->
+					<div th:each="err : ${#fields.errors('address')}"
+						class="invalid-feedback" th:text="${err}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlSelect1">Select Role<span
+						style="color: red">*</span></label> <select class="form-control"
+						th:value="${user.role}" th:field="*{role}"
+						th:classappend="${#fields.hasErrors('role')} ? 'is-invalid' : ''"
+						id="exampleFormControlSelect1" name="role">
+						<option th:value="ROLE_FACULTY">ROLE_FACULTY</option>
+						<option th:value="ROLE_USER">ROLE_USER</option>
+						<option th:value="ROLE_ADMIN">ROLE_ADMIN</option>
+					</select>
+					<!-- 					<div th:each="err : ${#fields.errors('role')}" -->
+					<!-- 						class="invalid-feedback" th:text="${err}"></div> -->
+					<div th:each="err : ${#fields.errors('role')}"
+						class="invalid-feedback" th:text="${err}"></div>
+				</div>
+
+				<button class="btn btn-info mb-5 col-3" type="submit">Save</button>
+			</form>
+		</div>
+	</section>
+
+</body>
+</html>

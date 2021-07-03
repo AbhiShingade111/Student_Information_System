@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="student/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link type="text/stylesheet" th:src="@{/cs/user.css}">
+<style>
+body {
+	background-color: powderblue;
+}
+
+.y {
+	background-color: white;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 100px;
+	padding: 20px;
+}
+
+.head {
+	background-color: aqua !important;
+}
+
+.head:hover {
+	background-color: gray !important;
+}
+</style>
+
+</head>
+<body>
+	<section>
+
+		<h1 style="text-align: center;">Result</h1>
+
+		<!-- 		<div class="container"> -->
+		<!-- 			<div class="row"> -->
+		<!-- 				<div class="mt-5"> -->
+		<!-- 					<div class="text-center"> -->
+		<!-- 						<table class="table table-bordered"> -->
+		<!-- 							<tr> -->
+		<!-- 								<td>Student Name</td> -->
+		<!-- 								<td th:text="${marksheet.stud_name}"></td> -->
+		<!-- 							</tr> -->
+		<!-- 							<tr> -->
+		<!-- 								<td>Roll No</td> -->
+		<!-- 								<td th:text="${marksheet.roll_no}"></td> -->
+		<!-- 							</tr> -->
+		<!-- 							<tr> -->
+		<!-- 								<td>College Name</td> -->
+		<!-- 								<td th:text="${marksheet.college_name}"></td> -->
+		<!-- 							</tr> -->
+		<!-- 							<tr> -->
+		<!-- 								<td>Physics</td> -->
+		<!-- 								<td th:text="${marksheet.physics}"></td> -->
+		<!-- 							</tr> -->
+		<!-- 							<tr> -->
+		<!-- 								<td>Chemistry</td> -->
+		<!-- 								<td th:text="${marksheet.chemistry}"></td> -->
+		<!-- 							</tr> -->
+		<!-- 							<tr> -->
+		<!-- 								<td>Mathematics</td> -->
+		<!-- 								<td th:text="${marksheet.maths}"></td> -->
+		<!-- 							</tr> -->
+		<!-- 							<tr> -->
+		<!-- 								<td>Biology</td> -->
+		<!-- 								<td th:text="${marksheet.biology}"></td> -->
+		<!-- 							</tr> -->
+
+		<!-- 						</table> -->
+		<!-- 					</div> -->
+		<!-- 				</div> -->
+		<!-- 			</div> -->
+		<!-- 		</div> -->
+
+		<div class="y"
+			style="margin-left: 20%; margin-right: 20%; margin-top: 50px;">
+
+			<table class="table table-bordered">
+
+				<tr>
+
+					<td>Name</td>
+					<td th:text="${marksheet.stud_name}">ABhishek SHingade</td>
+				</tr>
+				<tr>
+					<td>Roll NO</td>
+					<td th:text="${marksheet.roll_no}">5719</td>
+				</tr>
+
+			</table>
+			<table class="table table-bordered table-striped">
+				<thead class="head thead-dark">
+					<th>SR NO</th>
+					<th>Subject Name</th>
+					<th>Marks Obtained</th>
+					<th>Max Marks</th>
+
+
+
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Physics</td>
+						<td th:text="${marksheet.physics}">75</td>
+						<td>100</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Chemistry</td>
+						<td th:text="${marksheet.chemistry}">65</td>
+						<td>100</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Mathematics</td>
+						<td th:text="${marksheet.maths}">65</td>
+						<td>100</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>Biology</td>
+						<td th:text="${marksheet.biology}">65</td>
+						<td>100</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="text-align: center">Total</td>
+						<td colspan="2" style="text-align: center;"><span
+							th:text="${total}"></span> /400</td>
+					</tr>
+					<tr>
+						<td colspan="4" style="text-align: center">Result:<span
+							th:text="${passvalue}"></span></td>
+					</tr>
+
+				</tbody>
+			</table>
+			<div style="text-align: center;">
+				<a href="#" onclick="window.print()">Print</a>
+				
+			</div>
+<div style="text-align: center;">
+<a th:href="@{/student/dashboard}" style="text-align: center;">Click
+			Here To see more Results</a>
+</div>
+			
+
+
+
+
+
+
+
+		</div>
+
+<div style="margin-top: 40px; text-align: center; margin-left: 20px;margin-right: 20px;">
+				<h5>Disclaimer : Result for information only please verify with your original Mark sheet.Service provider Company are not responisble for any inadvertent error or consequence thereof.</h5>
+
+			</div>
+
+
+		
+
+	</section>
+
+</body>
+</html>

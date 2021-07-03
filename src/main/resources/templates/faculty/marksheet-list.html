@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="faculty/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+<table class="table table-bordered table-striped mt-4">
+			<thead class="thead-dark">
+				<tr>
+					<th>Student Name</th>
+					<th>College Name</th>
+					<th>Roll No</th>
+					<th>Physics</th>
+					<th>Chemistry</th>
+					<th>Mathematics</th>
+					<th>Biology</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="tempMarksheet : ${marksheets}">
+					<td th:text="${tempMarksheet.stud_name}"></td>
+					<td th:text="${tempMarksheet.college_name}"></td>
+					<td th:text="${tempMarksheet.roll_no}"></td>
+					<td th:text="${tempMarksheet.physics}"></td>
+					<td th:text="${tempMarksheet.chemistry}"></td>
+					<td th:text="${tempMarksheet.maths}"></td>
+					<td th:text="${tempMarksheet.biology}"></td>
+					<td><a th:href="@{/faculty/delete-marksheet(marksheetId=${tempMarksheet.stud_id})}"
+					class="btn btn-info btn-sm">Delete</a>
+					<a th:href="@{/faculty/update-marksheet(marksheetId=${tempMarksheet.stud_id})}"
+					class="btn btn-info btn-sm">Update</a>
+					<a th:href="@{/faculty/view-detail(marksheetId=${tempMarksheet.stud_id})}"
+					class="btn btn-info btn-sm">View</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+
+
+</section>
+
+</body>
+</html>

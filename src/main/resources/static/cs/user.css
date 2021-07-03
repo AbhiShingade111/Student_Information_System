@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.ba{
+	background-color: gray;
+}
+
+.ba:hover {
+	background-color: aqua;
+}
+.y {
+	background-color: white;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 100px;
+	padding: 20px;
+}
+
+.head {
+	background-color: aqua!important;
+}
+
+.head:hover {
+	background-color: gray!important;
+}

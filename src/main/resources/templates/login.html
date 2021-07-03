@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<title>Login page</title>
+<style type="text/css">
+.login-div {
+	width: 430px;
+	height: 500px;
+	margin-top: 50px;
+	margin-left: 350px;
+	padding: 60px 35px 35px 35px;
+	border-radius: 40px;
+	background: #ecf0f3;
+	transform-style: flat;
+	box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+}
+
+.sub-title {
+	text-align: center;
+	font-size: 15px;
+	padding-top: 7px;
+	letter-spacing: 3px;
+}
+
+.fields {
+	width: 100%;
+	padding: 75px 5px 5px 5px;
+}
+
+.fields input {
+	border: none;
+	outline: none;
+	background: none;
+	font-size: 15px;
+	color: #555;
+	padding: 20px 10px 20px 5px;
+}
+
+.userdetail, .pass {
+	margin-bottom: 30px;
+	border-radius: 25px;
+	box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+}
+
+.fields svg {
+	height: 22px;
+	margin: 0 10px -3px 25px;
+}
+
+.signin-button {
+	outline: none;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	height: 60px;
+	border-radius: 30px;
+	font-size: 20px;
+	font-weight: 700;
+	color: #fff;
+	text-align: center;
+	background: #24cfaa;
+	box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+}
+
+.signin-button:hover {
+	background: #2fdbb6;
+}
+</style>
+
+
+
+
+</head>
+<body>
+	<!-- 	<div class="container"> -->
+	<!-- 		<div class="mt-5"> -->
+
+	<!-- 			<div class="text-center" style="background-color: aqua; width: 100%; height: 80px;"><h2 style="color: black; text-shadow: 5px 5px 7px grey; font-size: 50px; font-weight: bold;font-style: inherit;">Login Page</h2></div> -->
+
+	<!-- 			<div class="mt-5"> -->
+	<!-- 				<form action="#" th:action="@{/login}" method="post"> -->
+
+	<!-- 					<div class="form-group"> -->
+	<!-- 						<label for="exampleInputEmail1">UserName</label> <input -->
+	<!-- 							name="username" type="email" class="form-control" id="username" -->
+	<!-- 							aria-describedby="emailHelp" placeholder="Enter email"> -->
+	<!-- 					</div> -->
+	<!-- 					<div class="form-group"> -->
+	<!-- 						<label for="exampleInputPassword1">Password</label> <input -->
+	<!-- 							name="password" type="password" class="form-control" -->
+	<!-- 							id="exampleInputPassword1" placeholder="Password"> -->
+	<!-- 					</div> -->
+	<!-- 					<div class="text-center"> -->
+	<!-- 						<button type="submit" class="btn btn-primary" name="submit">Submit</button> -->
+	<!-- 					</div> -->
+
+	<!-- 				</form> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
+
+	<div class="login-div">
+
+		<div class="sub-title">Login Page</div>
+
+		<div class="fields">
+
+			<form action="#" th:action="@{/login}" method="post">
+				<div class="userdetail">
+					<input type="text" name="username" class="user-input"
+						placeholder="Enter email" />
+
+				</div>
+				<div class="pass">
+					<input type="password" placeholder="password" name="password" class="pass-input">
+
+				</div>
+				<button class="signin-button" type="submit" name="submit">Login</button>
+
+
+			</form>
+
+
+		</div>
+
+
+
+
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+
+<table class="table table-bordered table-striped mt-4">
+			<thead class="thead-dark">
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Address</th>
+					<th>State</th>
+					<th>City</th>
+					<th>Role</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="tempUser : ${users}">
+					<td th:text="${tempUser.firstname}"></td>
+					<td th:text="${tempUser.lastname}"></td>
+					<td th:text="${tempUser.email}"></td>
+					<td th:text="${tempUser.address}"></td>
+					<td th:text="${tempUser.state}"></td>
+					<td th:text="${tempUser.city}"></td>
+					<td th:text="${tempUser.role}"></td>
+					<td><a th:href="@{/admin/delete-user(userId=${tempUser.id})}"
+					class="btn btn-info btn-sm">Delete</a>
+					<a th:href="@{/admin/update-user(userId=${tempUser.id})}"
+					class="btn btn-info btn-sm">Update</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+</section>
+
+</body>
+</html>
